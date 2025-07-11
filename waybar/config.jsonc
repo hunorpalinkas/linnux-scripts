@@ -1,0 +1,121 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": [
+  "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "clock",
+    "cpu",
+    "custom/gpu-usage",
+    "memory",
+    "network",
+    "custom/uptime"
+  ],
+
+  "modules-right": [
+    "pulseaudio",
+    "backlight",
+    "custom/docker",
+    "tray",
+    "custom/power"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+
+  "custom/music": {
+    "format": "  {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 50
+  },
+
+  "clock": {
+    "timezone": "Europe/Budapest",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%d/%m/%Y - %H:%M:%S}",
+    "interval": 1
+  },
+
+  "network": {
+    "format-wifi": "󰤢 {bandwidthDownBits}",
+    "format-ethernet": "󰈀 {bandwidthDownBits}",
+    "format-disconnected": "󰤠 No Network",
+    "interval": 5,
+    "tooltip": false
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": "cpu{usage:>2}% {icon0}{icon1}{icon2}{icon3}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+  },
+
+  "custom/gpu-usage": {
+  "format": "{} {icon}",
+  "exec": "/home/hunor/Downloads/gpu-usage-waybar.iml",
+  "return-type": "json",
+  "format-icons": "󰾲",
+  "on-click": "kitty -e nvtop"
+  },
+  
+
+  "memory": {
+    "interval": 30,
+    "format": "ram {used:0.1f}G/{total:0.1f}G"
+  },
+
+  "custom/uptime": {
+  "format": "{}",
+  "interval": 1600,
+  "exec": "awk '{h=int($1/3600); m=int(($1%3600)/60); printf \"up: %dh %dm\", h, m}' /proc/uptime"
+  },
+
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout &",
+    "format": "⏻"
+  },
+
+  "custom/docker": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 10,
+    "exec": "$(pwd)/scripts/docker-stats/docker-stats",
+    "tooltip": true
+  },
+
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 1800,
+    "exec": "$(pwd)/scripts/weather-stats/weather-stats",
+    "return-type": "json"
+  }
+}

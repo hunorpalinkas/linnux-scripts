@@ -1,0 +1,105 @@
+/* 1. Base Reset & Font */
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+  min-height: 0;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+/* 2. Bar Container */
+#waybar {
+  background-color: rgba(255, 0 ,60, 0.3);
+  color: #00ffff;
+  border: 2px solid #ff003c;
+}
+
+/* 3. Common Module Styling */
+#workspaces,
+#tray,
+#clock,
+#battery,
+#network,
+#cpu,
+#memory,
+#pulseaudio,
+#custom-uptime,
+#backlight {
+  background-color: transparent;
+  color: #00ffff;
+  border: 2px solid #ff003c;
+  padding: 0px 6px;
+  margin: 6px 2px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* 4. Hover (Fake Glitch/Glow) */
+#workspaces:hover,
+#tray:hover,
+#clock:hover,
+#battery:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#custom-uptime:hover,
+#backlight:hover {
+  background-color: #1b1b1b;
+  color: #ff003c;
+}
+
+/* 5. Workspaces */
+#workspaces {
+  background-color: #0a0a0a;
+  border: 2px solid #00ffff;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#custom-power {
+  background-color: #0a0a0a;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  padding: 0px 6px;
+  padding-right: 8px;
+  margin: 6px 2px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+
+#workspaces button {
+  color: #00ffff;
+  background: transparent;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 0px;
+}
+
+#workspaces button.active {
+  background-color: #ff003c;
+  color: #000000;
+  box-shadow: 0 0 6px #ff003c;
+}
+
+#workspaces button:hover {
+  color: #ff003c;
+}
+
+/* 6. Module‑specific Color Highlights */
+#clock      { border-color: #ff003c; }
+#battery    { border-color: #ff003c; }
+#network    { border-color: #ff003c; }
+#pulseaudio { border-color: #ff003c; }
+#memory     { border-color: #ff003c; }
+#cpu        { border-color: #ff003c; }
+#tray       { border-color: #00ffff; }
+
+/* 7. Optional spacing for floating style */
+#custom-weather,
+#custom-music,
+#custom-lock,
+#custom-docker {
+}
+
